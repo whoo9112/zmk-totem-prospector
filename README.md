@@ -1,3 +1,4 @@
 zmk totem firmware 
 
--include rgbled widget shield
+-include rgbled widget
+-dongle version
