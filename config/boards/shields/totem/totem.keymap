@@ -206,7 +206,7 @@ label= "GAME"                             ;
                 &none       &kp LEFT    &kp DOWN    &kp RIGHT   &none           &kp H       &kp J       &kp K       &kp L       &kp SEMI
     &tog GAME   &kp ESC     &none       &none       &kp	B       &kp V          &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp LSHFT      
                                         &trans      &kp RET     &kp UP          &kp UP      &kp f       &kp s
-                        };
+                        >;
                 };
 
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
