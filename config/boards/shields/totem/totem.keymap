@@ -44,7 +44,7 @@
     quick-tap-ms = <150>;
 };
 
-/ {
+
         combos {
                 compatible = "zmk,combos";
                                               
@@ -65,7 +65,7 @@
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <170>;
             quick-tap-ms = <125>;
             global-quick-tap;
             bindings =
@@ -73,6 +73,15 @@
                 <&kp>;
         };
     };
+	
+	behaviors {
+        td0: tap_dance_0 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&kp FSLH>, <&kp QMARK>;
+    };
+};
 
     macros {
        
