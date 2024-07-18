@@ -32,10 +32,9 @@
   };
 
 &mt {
-  quick-tap-ms = <100>;
-  global-quick-tap;
-  flavor = "tap-preferred";
-  tapping-term-ms = <170>;
+  tapping-term-ms = <240>;
+  flavor = "balanced";
+  quick-tap-ms = <150>;
 };
 
 &lt {
@@ -51,7 +50,7 @@
 	        COMBO(ctrl+c, &kp LC(C), 22 23)
                 COMBO(ctrl+v, &kp LC(V), 23 24)
                 COMBO(ctrl+x, &kp LC(X), 21 22)
-                COMBO(win, &kp LGUI, 20 34)
+                COMBO(win, &kp LGUI, 20 33)
                 COMBO(dcq, &kp LS(Q), 00 10)
                 COMBO(dcw, &kp LS(W), 01 11)
                 COMBO(dce, &kp LS(E), 02 12)
@@ -73,7 +72,7 @@
                 <&kp>;
         };
     };
-	
+
 	behaviors {
         td0: tap_dance_0 {
         compatible = "zmk,behavior-tap-dance";
@@ -82,6 +81,26 @@
         bindings = <&kp FSLH>, <&kp QMARK>;
     };
 };
+
+behaviors {
+        td1: tap_dance_1 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&kp LPAR>, <&kp LBKT>, <&kp LBRC>;
+    };
+};
+
+
+behaviors {
+        td2: tap_dance_2 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&kp RPAR>, <&kp RBKT>, <&kp RBRC>;
+    };
+};
+
 
     macros {
        
@@ -110,7 +129,7 @@ label= "BASE"                              ;
                     &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U         &kp I       &kp O       &kp P
                     &kp A       &hm LALT S  &hm LCTRL D &hm LSHFT F &kp G           &kp H       &hm LSHFT J   &hm LCTRL K &hm LALT L  &kp SEMI
     &mt LSHFT ESC   &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M         &kp COMMA   &kp DOT     &td0    &kp LSHFT
-                           &mt LCTRL DEL    &mt LSHFT TAB   &lt NAV SPACE           &lt SYM RET  &mt LSHFT RALT  &kp BSPC
+                           &mt LCTRL DEL    &mt LSHFT SPACE   &lt NAV TAB	    &lt SYM RET  &mt LSHFT RALT  &kp BSPC
                         >;
                 };
 
@@ -134,8 +153,8 @@ label= "NAVI"                              ;
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                 &kp CAPS    &kp KP_NLCK  &kp UP      &kp BSLH    &kp LBRC        &kp RBRC    &kp N7   &kp N8   &kp N9   &kp KP_PLUS
-                &none       &kp LEFT     &kp DOWN    &kp RIGHT   &kp LBKT        &kp RBKT    &kp N4   &kp N5   &kp N6   &kp MINUS
-     &trans     &kp HOME    &kp END      &kp PG_UP   &kp PG_DN   &kp LPAR        &kp RPAR    &kp N1   &kp N2   &kp N3   &kp KP_MULTIPLY &trans     
+                &none       &kp LEFT     &kp DOWN    &kp RIGHT   &kp LSHFT       &none	     &kp N4   &kp N5   &kp N6   &kp MINUS
+     &trans     &kp HOME    &kp END      &kp PG_UP   &kp PG_DN   &td1            &kp td2     &kp N1   &kp N2   &kp N3   &kp KP_MULTIPLY &trans     
                                          &trans      &trans      &trans          &mo ADJ     &kp N0   &kp EQUAL     
                         >;
                 };
@@ -159,9 +178,9 @@ label= "SYM"                               ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp KP_MULTIPLY   &kp SQT     &kp DQT       
-                &none       &none       &none       &none       &none           &none       &none       &none             &none       &none
-     &none      &none       &none       &none       &none       &none           &none       &none       &none             &none       &none    &none    
+                &kp TILDE   &none       &none       &none       &none           &kp F9      &kp F10    &kp F11     &kp F12    &kp PSCRN      
+                &none       &none       &none       &none       &none           &kp F5      &kp F6     &kp F7      &kp F8     &kp APOSTROPHE
+     &none      &none       &none       &none       &none       &none           &kp F1      &kp F2     &kp F3     &kp F4      &kp BSLH    &none    
                                         &none       &mo ADJ     &mo ADJ         &none       &none       &none     
                         >;
                 };
@@ -185,10 +204,10 @@ label= "ADJ"                               ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &sys_reset  &bt BT_CLR  &out OUT_TOG &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
-                &bootloader &bt BT_NXT  &trans       &trans      &tog GAME       &trans      &kp F4      &kp F5      &kp F6      &kp F11  
-    &trans      &trans      &bt BT_PRV  &trans       &trans      &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10     &kp PSCRN         
-                                        &trans       &trans      &trans          &none       &trans      &trans   
+                &sys_reset  &bt BT_CLR  &none	    &none       &none           &none       &none       &none       &none       &none
+                &bootloader &none       &none       &none       &tog GAME       &none       &none       &none       &none       &none  
+    &trans      &trans      &none       &none       &none       &none           &none       &none       &none       &none       &none     &none        
+                                        &none       &none       &none           &none       &none     	 &none   
                         >;
                 };
 
